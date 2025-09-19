@@ -5,10 +5,4 @@
 [build.environment]
   NODE_VERSION = "20.11.1"
   NPM_FLAGS = "--legacy-peer-deps"
-  # Si usas pnpm en vez de npm, comenta la línea de NPM_FLAGS y ver paso 1B
-
-[[plugins]]
-  # opcional: limpia antes de la build
-  package = "@netlify/plugin-lighthouse"
-  inputs = { }
-
+  VITE_SOURCEMAP = "false"
