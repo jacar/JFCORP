@@ -1,16 +1,22 @@
 {
-  "engines": {
-    "node": ">=20.11.1 <21"
-  },
+  "name": "desplieguejf",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=20.11.1 <21" },
   "scripts": {
     "preinstall": "corepack enable || true",
-    "build": "vite build",
     "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
   "devDependencies": {
     "typescript": "^5.5.4",
-    "vite": "^5.3.0"
+    "vite": "^5.3.0",
+    "@vitejs/plugin-react": "^4.3.1"
   }
 }
