@@ -3,11 +3,11 @@ import react from '@vitejs/plugin-react'
 
 let basicSsl: any
 try {
-  // Solo intentamos cargarlo si existe (en local para dev)
+  // Solo disponible en desarrollo local si está instalado
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   basicSsl = require('@vitejs/plugin-basic-ssl').default
 } catch {}
 
-// Configuración
 export default defineConfig(({ command }) => ({
   plugins: [
     react(),
