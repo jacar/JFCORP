@@ -1,4 +1,8 @@
 {
+  "name": "tu-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
     "prebuild": "node -v && npm -v && npx vite --version && npx tsc -v || echo \"(sin tsc)\"",
     "build": "npm run prebuild && npx tsc --noEmit || true && npx vite build --debug",
@@ -6,8 +10,8 @@
     "dev": "vite"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.0",
     "typescript": "^5.5.4",
-    "vite": "^5.4.0",
-    "@vitejs/plugin-react": "^4.3.0"
+    "vite": "^5.4.0"
   }
 }
