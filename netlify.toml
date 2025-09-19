@@ -1,7 +1,14 @@
 [build]
-command = "npm run build"
-publish = "dist"
+  command = "npm run build"
+  publish = "dist"
 
 [build.environment]
-NODE_VERSION = "22.19.0"
-NPM_FLAGS = "--no-fund --no-audit"
+  NODE_VERSION = "20.11.1"
+  NPM_FLAGS = "--legacy-peer-deps"
+  # Si usas pnpm en vez de npm, comenta la línea de NPM_FLAGS y ver paso 1B
+
+[[plugins]]
+  # opcional: limpia antes de la build
+  package = "@netlify/plugin-lighthouse"
+  inputs = { }
+
