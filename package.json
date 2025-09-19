@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "prebuild": "node -v && npm -v && npx vite --version && npx tsc -v || echo \"(sin tsc)\"",
-    "build": "npm run prebuild && npx tsc --noEmit || true && npx vite build --debug",
+    "build": "npm run prebuild && npx tsc --noEmit && npx vite build --debug"
     "preview": "vite preview",
     "dev": "vite"
   },
