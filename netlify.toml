@@ -1,7 +1,11 @@
+# netlify.toml
 [build]
   command = "npm run build"
   publish = "dist"
 
-
 [build.environment]
-  NODE_VERSION = "22"      # o la que uses
+  NODE_VERSION = "20"         # Vite 5 funciona muy bien con Node 18 o 20
+  NPM_FLAGS = "--no-audit --no-fund"
+
+[build.processing]
+  skip_processing = true
