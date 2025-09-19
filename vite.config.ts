@@ -1,16 +1,30 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
-let basicSsl: any
-try {
-  // Solo disponible en desarrollo local si está instalado
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  basicSsl = require('@vitejs/plugin-basic-ssl').default
-} catch {}
+export default defineConfig(async ({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
 
-export default defineConfig(({ command }) => ({
-  plugins: [
-    react(),
-    ...(command === 'serve' && basicSsl ? [basicSsl()] : [])
-  ],
-}))
+  const plugins = [react()]
+
+  // Importa basic-ssl SOLO en dev y si está instalado
+  if (mode === 'development') {
+    try {
+      const { default: basicSsl } = await import('@vitejs/plugin-basic-ssl')
+      plugins.push(basicSsl())
+    } catch {
+      // No instalado -> no pasa nada en CI/Netlify
+    }
+  }
+
+  return {
+    plugins,
+    server: {
+      // https solo si lo activas en local y tienes el plugin
+      https: false
+    },
+    build: {
+      outDir: 'dist',
+      sourcemap: false
+    }
+  }
+})
