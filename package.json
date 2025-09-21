@@ -1,0 +1,24 @@
+{
+  "name": "desplieguejf",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": "20.11.1" },
+  "scripts": {
+    "preinstall": "corepack enable || true",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.0",
+    "dotenv": "^16.4.5"
+  }
+}
